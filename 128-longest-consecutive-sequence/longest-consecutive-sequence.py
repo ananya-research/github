@@ -6,10 +6,10 @@ class Solution:
         for num in s:
             if num -1 not in s:
                 length=1
-                #next_num=num+1
-                while (num+length) in s:
+                next_num=num+1
+                while next_num in s:
                     length+=1
-                    
+                    next_num+=1
                 longest=max(longest,length)
         return longest
 
