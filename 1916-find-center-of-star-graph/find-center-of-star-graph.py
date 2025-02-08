@@ -11,7 +11,7 @@ class Solution:
 
         print(len(D))
 
-        n=len(D)
+        n=len(edges)+1
 
         connected=[0]*(n+1)
 
