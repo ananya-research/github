@@ -6,8 +6,7 @@ class Solution:
         
         if n==1:
             return True
-        if len(edges)==0:
-            return False
+        
         if source==destination:
             return True
 
