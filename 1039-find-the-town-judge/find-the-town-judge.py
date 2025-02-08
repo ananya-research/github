@@ -36,6 +36,6 @@ class Solution:
             
             f=len(D[v])
             if all(v not in val_list for val_list in D.values()):
-                if f==n-1 and v not in D.values():
+                if f==n-1:
                     return v
         return -1        
