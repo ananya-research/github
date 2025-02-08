@@ -1,15 +1,9 @@
-from collections import defaultdict
+
 
 class Solution:
     def findCenter(self, edges: List[List[int]]) -> int:
 
-        D=defaultdict(list)
-
-        for u,v in edges:
-            D[u].append(v)
-            D[v].append(u)
-
-        print(len(D))
+       
 
         n=len(edges)+1
 
