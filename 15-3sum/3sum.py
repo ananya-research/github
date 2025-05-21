@@ -22,36 +22,66 @@ class Solution:
 
         # return s
 
-        summ=0
-        n=len(nums)
-        nums.sort()
-        ans=[]
+        # summ=0
+        # n=len(nums)
+        # nums.sort()
+        # ans=[]
 
-        for i in range(n):
-            if nums[i]>0:
-                break
-            elif i>0 and nums[i]==nums[i-1]:
-                continue
-            lo=i+1
-            hi=n-1
-            while lo<hi:
-                summ=nums[i]+nums[lo]+nums[hi]
-                if summ==0:
-                    ans.append([nums[i],nums[lo],nums[hi]])
-                    lo+=1
-                    hi-=1
+        # for i in range(n):
+        #     if nums[i]>0:
+        #         break
+        #     elif i>0 and nums[i]==nums[i-1]:
+        #         continue
+        #     lo=i+1
+        #     hi=n-1
+        #     while lo<hi:
+        #         summ=nums[i]+nums[lo]+nums[hi]
+        #         if summ==0:
+        #             ans.append([nums[i],nums[lo],nums[hi]])
+        #             lo+=1
+        #             hi-=1
 
-                    while lo<hi and nums[lo]==nums[lo-1]:
-                        lo+=1
-                    while lo<hi and nums[hi]==nums[hi+1]:
-                        hi-=1
+        #             while lo<hi and nums[lo]==nums[lo-1]:
+        #                 lo+=1
+        #             while lo<hi and nums[hi]==nums[hi+1]:
+        #                 hi-=1
                 
-                elif summ>0:
-                    hi-=1
-                else:
-                    lo+=1
+        #         elif summ>0:
+        #             hi-=1
+        #         else:
+        #             lo+=1
             
-        return ans
+        # return ans
+
+
+
+        res=[]
+        nums.sort()
+
+        n=len(nums)
+
+        for i, a in enumerate(nums):
+            if i>0 and a==nums[i-1]:
+                continue
+            
+            l=i+1
+            r=n-1
+
+            while l<r:
+                threeSum=a+nums[l]+nums[r]
+                if threeSum>0:
+                    r-=1
+                elif threeSum<0:
+                    l+=1
+                else:
+                    res.append([a, nums[l], nums[r]])
+                    l+=1
+                    while nums[l]==nums[l-1] and l<r:
+                        l+=1
+            
+
+        return res
+            
 
 
                 
