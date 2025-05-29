@@ -11,20 +11,23 @@ class Solution:
         lca=[root]
 
         def search(root):
+
             if not root:
                 return
+            
             lca[0]=root
-            value=root.val
-            if value< p.val and value<q.val:
-                search(root.right)
-            elif value>p.val and value>q.val:
+            if root.val>p.val and root.val>q.val:
                 search(root.left)
+            elif root.val<p.val and root.val<q.val:
+                search(root.right)
             else:
                 return
-        
+            
         search(root)
         return lca[0]
 
+
+    
 
 
 
