@@ -36,8 +36,7 @@ class Solution:
         if price<minPrice:
             minPrice=price
         profit=price-minPrice
-        if profit>maxProfit:
-            maxProfit=profit
+        maxProfit=max(maxProfit, profit)
     
     return maxProfit
 
