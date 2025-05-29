@@ -1,33 +1,33 @@
 class Solution:
     def isValid(self, s: str) -> bool:
+        # hashmap={')':'(', '}':'{', ']':'['}
+
         # stack=[]
-        # mapping={')':'(', ']':'[', '}':'{'}
 
-        # for char in s:
-        #     if char in mapping:
-        #         top_ele=stack.pop() if stack else '#'
-        #         if mapping[char]!=top_ele:
-        #             return False
+        # for c in s:
+        #     if c not in hashmap:
+        #         stack.append(c)
         #     else:
-        #         stack.append(char)
-
-
+        #         if not stack:
+        #             return False
+        #         if stack:
+        #             popped=stack.pop()
+        #             if popped!=hashmap[c]:
+        #                 return False
         # return not stack
 
-        hashmap={')':'(', '}':'{', ']':'['}
-
+        map={')':'(', ']':'[', '}':'{'}
         stack=[]
 
         for c in s:
-            if c not in hashmap:
+            if c not in map:
                 stack.append(c)
             else:
                 if not stack:
                     return False
-                if stack:
-                    popped=stack.pop()
-                    if popped!=hashmap[c]:
+                else:
+                    ele=stack.pop()
+                    if ele!=map[c]:
                         return False
+                    
         return not stack
-
-        
