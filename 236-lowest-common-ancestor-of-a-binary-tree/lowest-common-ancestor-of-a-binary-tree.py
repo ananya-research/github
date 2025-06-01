@@ -6,27 +6,8 @@
 #         self.right = None
 
 class Solution:
-    from collections import defaultdict
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
-        
-        
-        
-        # if root==None or root==p or root==q:
-        #     return root
-        
-        # left=self.lowestCommonAncestor(root.left, p,q)
-        # right=self.lowestCommonAncestor(root.right, p,q)
-        
-        # if left!=None and right!=None:
-        #     return root
-        
-        # if left==None:
-        #     return right
-        # else:
-        #     return left
-        
-        
-        
+    
         if root == None or root==p or root==q:
             return root
         
