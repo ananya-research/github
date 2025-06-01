@@ -8,24 +8,28 @@ class Solution:
             return -1
 
         queue = deque()
-        queue.append((start, 0))
+        queue.append(start)
         visited = set()
         visited.add(start)
 
         genes = ['A', 'C', 'G', 'T']
+        steps=-1
 
         while queue:
-            curr, steps = queue.popleft()
-            if curr == end:
-                return steps
+            steps+=1
+            for _ in range(len(queue)):
+                curr = queue.popleft()
+                if curr == end:
+                    return steps
 
-            for i in range(8):
-                for g in genes:
-                    if curr[i] != g:
-                        mutation = curr[:i] + g + curr[i+1:]
-                        if mutation in bank_set and mutation not in visited:
-                            visited.add(mutation)
-                            queue.append((mutation, steps + 1))
+                for i in range(8):
+                    for g in genes:
+                        if curr[i] != g:
+                            mutation = curr[:i] + g + curr[i+1:]
+                            if mutation in bank_set and mutation not in visited:
+                                visited.add(mutation)
+                                queue.append(mutation)
+           
 
         return -1
         
