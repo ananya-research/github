@@ -23,9 +23,10 @@ class LRUCache:
         
     def get(self, key: int) -> int:
         if key in self.cache:
+            node=self.cache[key].val
             self.remove(self.cache[key])
             self.insert(self.cache[key])
-            return self.cache[key].val
+            return node
         return -1
         
     def put(self, key: int, value: int) -> None:
