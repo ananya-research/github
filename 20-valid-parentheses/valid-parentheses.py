@@ -30,4 +30,6 @@ class Solution:
                     if ele!=map[c]:
                         return False
                     
-        return not stack
+        if stack:
+            return False
+        return True
