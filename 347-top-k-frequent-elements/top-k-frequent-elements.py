@@ -3,16 +3,6 @@ from collections import Counter
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
 
-        # if k==len(nums):
-        #     return nums
-        
-
-        # count=Counter(nums)
-        # print(count)
-
-        # return heapq.nlargest(k, count.keys(), key=count.get)
-
-
         n=len(nums)
         answer=[0]*(n+1)
 
@@ -23,6 +13,8 @@ class Solution:
                 answer[freq]=[num]
             else:
                 answer[freq].append(num)
+        
+        print(answer)
             
         ret=[]
 
@@ -33,6 +25,7 @@ class Solution:
                 break
             
         return ret
+
 
             
 
