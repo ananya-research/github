@@ -1,38 +1,35 @@
 class Solution:
     def reorganizeString(self, s: str) -> str:
-        ans=[]
 
         n=len(s)
 
-        char_count=Counter(s)
+        c=Counter(s)
 
-        print(char_count)
-        
         max_heap=[]
 
-        for char, count in char_count.items():
+        for char, count in c.items():
             max_heap.append((-count, char))
 
         heapq.heapify(max_heap)
 
-        print(max_heap)
-
-        prev_char=""
         prev_count=0
+        prev_char=""
+
+        ans=[]
 
         while max_heap:
-            count, char= heapq.heappop(max_heap)
-            ans.append(char)
+            count, char=heapq.heappop(max_heap)
 
             if prev_count<0:
                 heapq.heappush(max_heap, (prev_count, prev_char))
+            
+            if prev_char!=char:
+                ans.append(char)
 
             prev_count=count+1
             prev_char=char
-
-        return "".join(ans) if n==len(ans) else ""
-
-
+        
+        return "".join(ans) if len(ans)==n else ""
 
 
 
@@ -40,7 +37,53 @@ class Solution:
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+        # n=len(s)
+
+        # char_count=Counter(s)
+
+        # max_heap=[]
+
+        # for char, count in char_count.items():
+        #     max_heap.append((-count,char))
+
+        # heapq.heapify(max_heap)
+
+        # prev_count=0
+        # prev_char=""
+
+        # ans=[]
+
+        # while max_heap:
+
+        #     count, char=heapq.heappop(max_heap)
+
+        #     if prev_count<0:
+        #         heapq.heappush(max_heap, (prev_count, prev_char))
+
+        #     if prev_char!=char:
+        #         ans.append(char)
+              
+        #     prev_count=count+1
+        #     prev_char=char
+
+        # return "".join(ans) if n==len(ans) else ""
 
         
+
+
+
+
 
         
