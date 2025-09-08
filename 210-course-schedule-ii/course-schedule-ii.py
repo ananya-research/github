@@ -40,10 +40,55 @@ class Solution:
         
 
 
-        g=defaultdict(list)
+        # g=defaultdict(list)
+
+        # for a,b in prerequisites:
+        #     g[a].append(b)
+
+        # UNVISITED=0
+        # VISITING=1
+        # VISITED=2
+
+        # states=[UNVISITED]*numCourses
+
+        # ans=[]
+
+        # def dfs(node):
+        #     state=states[node]
+        #     if state==VISITED:
+        #         return True
+        #     if state==VISITING:
+        #         return False
+            
+        #     states[node]=VISITING
+
+        #     for nei in g[node]:
+        #         if not dfs(nei):
+        #             return False
+
+        #     states[node]=VISITED
+        #     ans.append(node)
+        #     return True
+
+
+
+
+
+        # for i in range(numCourses):
+
+        #     if not dfs(i):
+        #         return []
+        
+        # return ans
+
+
+
+        graph=defaultdict(list)
+
+        ans=[]
 
         for a,b in prerequisites:
-            g[a].append(b)
+            graph[a].append(b)
 
         UNVISITED=0
         VISITING=1
@@ -51,34 +96,30 @@ class Solution:
 
         states=[UNVISITED]*numCourses
 
-        ans=[]
-
         def dfs(node):
+
             state=states[node]
+
             if state==VISITED:
                 return True
-            if state==VISITING:
-                return False
             
+            elif state==VISITING:
+                return False
+
             states[node]=VISITING
 
-            for nei in g[node]:
+            for nei in graph[node]:
                 if not dfs(nei):
                     return False
-
+            
             states[node]=VISITED
             ans.append(node)
             return True
 
-
-
-
-
         for i in range(numCourses):
-
             if not dfs(i):
                 return []
-        
+
         return ans
 
 
